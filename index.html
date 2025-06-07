@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MG Organics</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="comm.css">
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Mobile Sidebar Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden opacity-0 overlay"></div>
+
+    <!-- Mobile Sidebar -->
+    <div id="mobile-sidebar" class="sidebar fixed inset-y-0 left-0 w-64 bg-light-bg z-50 transform -translate-x-full p-6 flex flex-col md:hidden">
+        <!-- Close button for sidebar -->
+        <button id="close-sidebar-btn" class="self-end text-text-dark text-3xl mb-8 focus:outline-none">
+            &times;
+        </button>
+
+        <!-- Sidebar Navigation -->
+        <ul class="flex flex-col gap-6 text-text-dark font-medium text-lg mb-8">
+            <li><a href="#" class="hover:text-dark-green transition-colors duration-200 block py-2">Home</a></li>
+            <li class="relative group">
+                <a href="#" class="flex items-center hover:text-dark-green transition-colors duration-200 block py-2">
+                    Groceries
+                    <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </a>
+                <!-- Placeholder Dropdown Menu for sidebar (can be expanded with JS) -->
+                <div class="pl-4 mt-2 hidden group-hover:block md:hidden">
+                    <a href="#" class="block px-2 py-1 text-text-dark hover:bg-gray-100 text-base">Fruits</a>
+                    <a href="#" class="block px-2 py-1 text-text-dark hover:bg-gray-100 text-base">Vegetables</a>
+                    <a href="#" class="block px-2 py-1 text-text-dark hover:bg-gray-100 text-base">Dairy</a>
+                </div>
+            </li>
+            <li><a href="#" class="hover:text-dark-green transition-colors duration-200 block py-2">About</a></li>
+        </ul>
+
+        <!-- Connect with us button for sidebar -->
+        <a href="#" class="bg-dark-green text-white px-5 py-2 rounded-full flex items-center justify-center gap-2 hover:bg-button-hover transition-colors duration-200 text-sm mb-6">
+            Connect with us
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+
+        <!-- Icon Buttons for sidebar -->
+        <div class="flex items-center justify-center gap-6 mt-auto py-4 border-t border-gray-200">
+            <button class="text-text-dark focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </button>
+            <button class="text-text-dark focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            </button>
+            <button class="text-text-dark focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="flex-grow flex flex-col">
+        <!-- Header Section (only logo and hamburger/desktop nav) -->
+        <header class="bg-light-bg w-full py-4 px-6 md:px-12 lg:px-24 flex items-center justify-between shadow-sm">
+            <!-- Logo -->
+            <div class="text-text-dark text-2xl font-bold">MG ORGANICS</div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-8 text-text-light font-medium text-lg">
+                <ul class="flex items-center gap-8">
+                    <li><a href="#" class="hover:text-dark-green transition-colors duration-200">Home</a></li>
+                    <li class="relative group">
+                        <a href="#" class="flex items-center hover:text-dark-green transition-colors duration-200">
+                            Groceries
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </a>
+                        <!-- Placeholder Dropdown Menu -->
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-40 z-10">
+                            <a href="#" class="block px-4 py-2 text-text-dark hover:bg-gray-100">Fruits</a>
+                            <a href="#" class="block px-4 py-2 text-text-dark hover:bg-gray-100">Vegetables</a>
+                            <a href="#" class="block px-4 py-2 text-text-dark hover:bg-gray-100">Dairy</a>
+                        </div>
+                    </li>
+                    <li><a href="#" class="hover:text-dark-green transition-colors duration-200">About</a></li>
+                </ul>
+            </nav>
+
+            <!-- Hamburger menu for mobile -->
+            <button id="open-sidebar-btn" class="md:hidden text-text-dark focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </header>
+
+        <!-- Main Content Sections -->
+        <main class="flex-grow flex flex-col md:flex-row">
+            <!-- Left Section: Text Content -->
+            <section class="flex-1 bg-light-bg p-6 md:p-12 lg:p-24 flex flex-col justify-center items-center md:items-start text-center md:text-left">
+                <p class="text-dark-green font-semibold text-lg md:text-xl mb-4">Discount Up to 20 %</p>
+                <h1 class="text-text-dark text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                    Buy Fresh And <br class="hidden md:block">Organic Grocery <br class="hidden md:block">Food
+                </h1>
+                <p class="text-text-light text-base md:text-lg mb-8 max-w-xl">
+                    Lorem ipsum dolor sit amet consectetur. Condimentum sed sed blandit purus nec nibh tortor ipsum. Placerat consequat lorem.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center gap-6 md:gap-12 w-full justify-center md:justify-start flex-wrap">
+                    <a href="#" class="bg-dark-green text-white px-8 py-3 rounded-full flex items-center gap-3 font-semibold text-lg hover:bg-button-hover transition-colors duration-200 shadow-lg">
+                        SHOP NOW
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                    <!-- Gemini API Integration Button: Generate Recipe -->
+                    <button id="open-recipe-modal-btn" class="bg-dark-green text-white px-8 py-3 rounded-full flex items-center gap-3 font-semibold text-lg hover:bg-button-hover transition-colors duration-200 shadow-lg mt-4 sm:mt-0">
+                        ✨ Generate Recipe
+                    </button>
+                    <!-- New Gemini API Integration Button: Get Meal Plan -->
+                    <button id="open-meal-plan-modal-btn" class="bg-dark-green text-white px-8 py-3 rounded-full flex items-center gap-3 font-semibold text-lg hover:bg-button-hover transition-colors duration-200 shadow-lg mt-4 sm:mt-0">
+                        ✨ Get Meal Plan
+                    </button>
+                    <div class="flex gap-8 text-text-dark font-bold text-xl md:text-2xl mt-4 sm:mt-0">
+                        <div class="text-center">
+                            <span class="block">35k +</span>
+                            <span class="block text-text-light text-sm font-normal">Users</span>
+                        </div>
+                        <div class="text-center">
+                            <span class="block">18k +</span>
+                            <span class="block text-text-light text-sm font-normal">Products</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Section: Image & Right-aligned elements -->
+            <section class="flex-1 bg-dark-green relative flex flex-col items-center md:items-end justify-center p-6 md:p-12 lg:p-24 overflow-hidden">
+                <!-- Connect with us button and icons for desktop -->
+                <div class="hidden md:flex items-center gap-4 mb-8">
+                    <a href="#" class="bg-dark-green text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-button-hover transition-colors duration-200 text-sm border border-white border-opacity-30">
+                        Connect with us
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                    <!-- Icon Buttons -->
+                    <button class="p-2 rounded-full text-white bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </button>
+                    <button class="p-2 rounded-full text-white bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    </button>
+                    <button class="p-2 rounded-full text-white bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Decorative elements from image -->
+                <svg class="absolute hidden md:block right-4 top-1/4 transform translate-x-1/2 -rotate-12 w-48 h-48 opacity-10" fill="none" stroke="white" stroke-width="1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100 10L120 70L190 70L135 110L155 170L100 130L45 170L65 110L10 70L80 70L100 10Z" fill="rgba(255,255,255,0.05)"/>
+                </svg>
+                <svg class="absolute hidden md:block left-0 bottom-0 transform -translate-x-1/4 translate-y-1/4 rotate-45 w-64 h-64 opacity-10" fill="none" stroke="white" stroke-width="1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="80" stroke="rgba(255,255,255,0.05)" stroke-width="20"/>
+                </svg>
+                <svg class="absolute hidden md:block right-0 bottom-0 transform translate-x-1/3 translate-y-1/3 rotate-12 w-32 h-32 opacity-10" fill="none" stroke="white" stroke-width="1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="80" height="80" rx="10" ry="10" stroke="rgba(255,255,255,0.05)" stroke-width="10"/>
+                </svg>
+
+                <img src="https://placehold.co/600x400/3F5E4E/FFFFFF?text=Delicious+Salad" alt="Quinoa salad with avocado and tomatoes" class="w-full max-w-md lg:max-w-xl h-auto rounded-xl shadow-2xl z-10" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3F5E4E/FFFFFF?text=Image+Not+Found';">
+                <!-- Decorative leaf from image -->
+                <svg class="absolute right-4 top-4 w-12 h-12 md:w-20 md:h-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.44 14.88L21.03 18.47C21.49 18.93 21.49 19.68 21.03 20.14L20.14 21.03C19.68 21.49 18.93 21.49 18.47 21.03L14.88 17.44M17.44 14.88L14.15 11.59C12.44 9.88 10.15 8.91 7.74 8.86C5.07 8.8 2.65 9.77 1.05 11.38C-0.55 12.98 -0.34 15.65 1.57 17.56L7.42 23.41C9.33 25.32 12.01 25.53 13.61 23.93C15.22 22.33 16.18 19.91 16.13 17.24C16.08 14.83 15.11 12.54 13.4 10.83L17.44 14.88ZM17.44 14.88L20.89 11.43C21.31 11.01 22 11.01 22.42 11.43C22.84 11.85 22.84 12.55 22.42 12.97L19.42 15.97" fill="white" fill-opacity="0.2"/>
+                    <path d="M12.98 12.53C14.07 13.62 14.07 15.39 12.98 16.48C11.89 17.57 10.12 17.57 9.03 16.48C7.94 15.39 7.94 13.62 9.03 12.53C10.12 11.44 11.89 11.44 12.98 12.53Z" fill="white" fill-opacity="0.2"/>
+                </svg>
+
+                <!-- Decorative leaf from image - bottom left -->
+                <svg class="absolute left-4 bottom-4 w-10 h-10 md:w-16 md:h-16 transform rotate-180" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.44 14.88L21.03 18.47C21.49 18.93 21.49 19.68 21.03 20.14L20.14 21.03C19.68 21.49 18.93 21.49 18.47 21.03L14.88 17.44M17.44 14.88L14.15 11.59C12.44 9.88 10.15 8.91 7.74 8.86C5.07 8.8 2.65 9.77 1.05 11.38C-0.55 12.98 -0.34 15.65 1.57 17.56L7.42 23.41C9.33 25.32 12.01 25.53 13.61 23.93C15.22 22.33 16.18 19.91 16.13 17.24C16.08 14.83 15.11 12.54 13.4 10.83L17.44 14.88ZM17.44 14.88L20.89 11.43C21.31 11.01 22 11.01 22.42 11.43C22.84 11.85 22.84 12.55 22.42 12.97L19.42 15.97" fill="white" fill-opacity="0.2"/>
+                    <path d="M12.98 12.53C14.07 13.62 14.07 15.39 12.98 16.48C11.89 17.57 10.12 17.57 9.03 16.48C7.94 15.39 7.94 13.62 9.03 12.53C10.12 11.44 11.89 11.44 12.98 12.53Z" fill="white" fill-opacity="0.2"/>
+                </svg>
+            </section>
+        </main>
+    </div>
+
+    <!-- Recipe Generator Modal -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4 pb-2 border-b border-gray-200">
+                <h2 class="text-2xl font-bold text-text-dark">✨ Generate Recipe</h2>
+                <button id="close-recipe-modal-btn" class="text-gray-500 hover:text-gray-700 text-3xl focus:outline-none">&times;</button>
+            </div>
+            <div class="mb-4">
+                <label for="ingredients-input" class="block text-text-dark text-lg font-medium mb-2">Enter ingredients (comma-separated):</label>
+                <textarea id="ingredients-input" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-dark-green text-text-dark resize-y" rows="4" placeholder="e.g., chicken, broccoli, rice, soy sauce"></textarea>
+            </div>
+            <button id="generate-recipe-btn" class="bg-dark-green text-white px-6 py-2 rounded-md font-semibold hover:bg-button-hover transition-colors duration-200 w-full mb-4">
+                Generate Recipe
+            </button>
+            <div id="recipe-output" class="bg-gray-100 p-4 rounded-md text-text-dark max-h-60 overflow-y-auto">
+                <p id="recipe-placeholder" class="text-text-light italic">Your generated recipe will appear here...</p>
+                <div id="recipe-loading" class="hidden flex justify-center items-center py-4">
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-dark-green"></div>
+                    <span class="ml-3 text-dark-green">Generating recipe...</span>
+                </div>
+                <div id="recipe-content" class="hidden prose max-w-none"></div>
+            </div>
+            <div id="recipe-error" class="hidden text-red-500 text-sm mt-2"></div>
+        </div>
+    </div>
+
+    <!-- Meal Plan Generator Modal -->
+    <div id="meal-plan-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-4 pb-2 border-b border-gray-200">
+                <h2 class="text-2xl font-bold text-text-dark">✨ Get Meal Plan</h2>
+                <button id="close-meal-plan-modal-btn" class="text-gray-500 hover:text-gray-700 text-3xl focus:outline-none">&times;</button>
+            </div>
+            <div class="mb-4">
+                <label for="meal-plan-input" class="block text-text-dark text-lg font-medium mb-2">Tell us your dietary preferences or goals:</label>
+                <textarea id="meal-plan-input" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-dark-green text-text-dark resize-y" rows="4" placeholder="e.g., vegetarian, high-protein, low-carb, for weight loss, 3-day plan"></textarea>
+            </div>
+            <button id="generate-meal-plan-btn" class="bg-dark-green text-white px-6 py-2 rounded-md font-semibold hover:bg-button-hover transition-colors duration-200 w-full mb-4">
+                Generate Meal Plan
+            </button>
+            <div id="meal-plan-output" class="bg-gray-100 p-4 rounded-md text-text-dark max-h-60 overflow-y-auto">
+                <p id="meal-plan-placeholder" class="text-text-light italic">Your generated meal plan will appear here...</p>
+                <div id="meal-plan-loading" class="hidden flex justify-center items-center py-4">
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-dark-green"></div>
+                    <span class="ml-3 text-dark-green">Generating meal plan...</span>
+                </div>
+                <div id="meal-plan-content" class="hidden prose max-w-none"></div>
+            </div>
+            <div id="meal-plan-error" class="hidden text-red-500 text-sm mt-2"></div>
+        </div>
+    </div>
+
+
+    <script src="comm.js"></script>
+</body>
+</html>

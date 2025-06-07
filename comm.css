@@ -1,0 +1,88 @@
+ /* Custom Tailwind Colors */
+        :root {
+            --color-light-bg: #F8F8F8; /* A light, off-white background */
+            --color-dark-green: #3F5E4E; /* A deep, organic green */
+            --color-text-dark: #333333;
+            --color-text-light: #555555;
+            --color-button-hover: #2e473a; /* Slightly darker green for hover */
+        }
+
+        .bg-light-bg {
+            background-color: var(--color-light-bg);
+        }
+        .bg-dark-green {
+            background-color: var(--color-dark-green);
+        }
+        .text-dark-green {
+            color: var(--color-dark-green);
+        }
+        .text-text-dark {
+            color: var(--color-text-dark);
+        }
+        .text-text-light {
+            color: var(--color-text-light);
+        }
+        .hover\:bg-button-hover:hover {
+            background-color: var(--color-button-hover);
+        }
+        .hover\:text-dark-green:hover {
+            color: var(--color-dark-green);
+        }
+        .hover\:bg-gray-100:hover {
+            background-color: #f3f4f6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Styling for the mobile sidebar transition */
+        .sidebar {
+            transition: transform 0.3s ease-out;
+        }
+        .overlay {
+            transition: opacity 0.3s ease-out;
+        }
+
+        /* Custom styles for modal (recipe and meal plan) */
+        .modal {
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+        }
+
+        .modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--color-light-bg);
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            max-width: 90%;
+            width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease-out;
+        }
+
+        .modal.open .modal-content {
+            transform: translateY(0);
+        }
